@@ -1,4 +1,4 @@
-# https://github.com/Noxde/Bloodborne-save-editor/blob/main/src-tauri/src/data_handling/offsets.rs
+# https://github.com/Noxde/Bloodborne-save-editor/blob/8f86be4d4d37db9c4902bab200836c8edfd2f736/src-tauri/src/data_handling/constants.rs
 USERNAME_TO_INV_OFFSET: int = 469
 USERNAME_TO_AOB: int = 68545
 
@@ -11,7 +11,7 @@ EILEEN_THE_CROW: dict[int, tuple[int, int]] = {0x417  : (0x10, 0x00),
                                                0x3DC9 : (0x00, 0x02),
                                                0x134E6: (0x00, 0x80),
                                                0x134E7: (0x00, 0x01)}
-# Patch format is: offset into AOB --> (before_agression byte, after_agression byte)
+# Patch format is: offset into AOB --> (before_aggression byte, after_aggression byte)
 
 
 def read_file(filename: str) -> bytearray:
@@ -25,7 +25,7 @@ def output_file(filename: str, the_bytes: bytearray) -> None:
 
 
 def find_username_offset(the_bytes: bytearray) -> int:
-    # https://github.com/Noxde/Bloodborne-save-editor/blob/main/src-tauri/src/data_handling/constants.rs
+    # https://github.com/Noxde/Bloodborne-save-editor/blob/8f86be4d4d37db9c4902bab200836c8edfd2f736/src-tauri/src/data_handling/offsets.rs
     inv_start_bytes: list[int] = [0x40, 0xf0, 0xff, 0xff]
     inv_start_bytes: bytearray = bytearray(inv_start_bytes)
 
@@ -59,7 +59,7 @@ def main() -> None:
     usr_input_msg: str = """1. Extract AOB
 2. Import AOB
 3. Patch Eileen the Crow
-The Eileen the Crow patch will turn him non-agressive ONLY IF you attacked him at the cathedral ward (Location 2).
+The Eileen the Crow patch will turn him non-aggressive ONLY IF you attacked him at the cathedral ward (Location 2).
 This also assumes you interacted with him at Location 1 (Central Yharnam). See https://bloodborne.wiki.fextralife.com/Eileen+the+Crow
 
 Choose from the options: """
